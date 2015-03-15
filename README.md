@@ -8,5 +8,5 @@ mvn tomcat:run
 
 then browser go to browser and
 ```
-http://localhost:8080/<project folder name>/handlesearch.jsp
+http://localhost:8080/<project folder name>/
 ```
