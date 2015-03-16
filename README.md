@@ -8,6 +8,11 @@ mvn compile
 mvn package
 mvn tomcat7:run
 ```
+or all in 1 line
+```
+mvn clean compile package tomcat7:run
+```
+
 That's right NO 
 ```
 cd target
