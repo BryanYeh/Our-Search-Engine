@@ -3,7 +3,14 @@ Our Search Engine (づ￣ ³￣)づ
 
 Maven Tomcat Search Engine
 ```
-mvn tomcat:run
+mvn clean
+mvn compile
+mvn package
+mvn tomcat7:run
+```
+That's right NO 
+```
+cd target
 ```
 
 then browser go to browser and
