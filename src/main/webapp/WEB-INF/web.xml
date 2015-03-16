@@ -4,4 +4,15 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>HandleSearch</servlet-name>
+  	<display-name>HandleSearch</display-name>
+  	<description></description>
+  	<servlet-class>serv.HandleSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HandleSearch</servlet-name>
+  	<url-pattern>/HandleSearch</url-pattern>
+  </servlet-mapping>
+
 </web-app>
