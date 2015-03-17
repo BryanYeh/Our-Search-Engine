@@ -27,17 +27,20 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">C•E•I•R</a>
+					<a class="navbar-brand" id="brand">C•E•I•R</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<form class="navbar-form navbar-left" role="search" method="post" action="HandleSearch">
-					 
+					<form class="navbar-form navbar-left" role="search" method="post"
+						action="HandleSearch">
+
 						<div class="input-group">
-							<input type="text" class="form-control " placeholder="Search for..."> <span class="input-group-btn">
-								<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+							<input type="text" class="form-control" placeholder="Search for..."> <span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
 							</span>
 						</div>
 					</form>
@@ -46,6 +49,11 @@
 			</div>
 			<!-- /.container-fluid -->
 		</nav>
+		
+		<!-- This is special DO NOT DELETE -->
+		<div class="row">
+			<img id="haha" src="">
+		</div>
 
 	</div>
 
@@ -57,5 +65,17 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript">
+		$( "#brand" ).click(function() {
+			$("#haha").attr('src', 'images/smile.jpg');
+			$(function() {window.setInterval("$('#haha').toggle();",20);});
+			setTimeout(
+					  function() 
+					  {
+						  $("#haha").attr('src', '');
+					  }, 50);
+		});
+	</script>
 </body>
 </html>
