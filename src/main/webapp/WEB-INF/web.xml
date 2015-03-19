@@ -10,9 +10,19 @@
   	<description></description>
   	<servlet-class>serv.HandleSearch</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SearchTwo</servlet-name>
+  	<display-name>SearchTwo</display-name>
+  	<description></description>
+  	<servlet-class>SearchTwo</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>HandleSearch</servlet-name>
   	<url-pattern>/HandleSearch</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SearchTwo</servlet-name>
+  	<url-pattern>/SearchTwo</url-pattern>
   </servlet-mapping>
 
 </web-app>
