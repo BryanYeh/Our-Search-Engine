@@ -51,7 +51,7 @@
 			List<String> specials = (List<String>) request.getAttribute("special");
 			for(int i = 0; i < specials.size(); i++){
 		%>
-		<div class="row">
+		<div class="row result" id="<%=(-1-i)%>">
 			<div class="col-md-10">
 				<h2><a href="<%=specials.get(i+1) %>"><%=specials.get(i) %></a></h2>
 				<p>
@@ -72,12 +72,12 @@
 		<hr>
 		<%
 			List<RankedLink> ourspecial = (List<RankedLink>) request.getAttribute("special2");
-			int whatever = 50;
-			if(ourspecial.size()<50)
-				whatever = ourspecial.size();
-			for(int i = 0; i < whatever; i++){
+			//int whatever = 50;
+			//if(ourspecial.size()<50)
+			//	whatever = ourspecial.size();
+			for(int i = 0; i < ourspecial.size(); i++){
 		%>
-		<div class="row">
+		<div class="row result " id="<%= i %>">
 			<div class="col-md-10">
 				<h2><a href="<%=ourspecial.get(i).getUrl() %>"><%=ourspecial.get(i).getTitle() %></a></h2>
 				<p>
@@ -94,8 +94,12 @@
 		<%
 			}
 		%>
-		
+		<div class="row" id="buttons">
+			<button onclick="undo()">Previous Page</button>
+			<button onclick="edit()">Next Page</button>
+		</div>
 	</div>	
+	<hr>
 	<div class="container">
 		<footer>C&#149;E&#149;I&#149;R Google can't beat this</footer>
 	</div>
@@ -103,5 +107,57 @@
 	<script src="js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		var pN = 0;
+		function edit(){
+			pN += 1;
+			nexta(pN);
+		}
+		function undo(){
+			pN -= 1;
+			nexta(pN);
+		}
+		
+		$("#-1").hide();
+		$("#-4").hide();
+		$("#-7").hide();
+		$("#-10").hide();
+		for(var i = 0; i < $(".result").length; i++){
+			var ww = "#" + i;
+			$(ww).hide();
+		}
+		
+		function nexta(currPage) {
+			if(currPage==0){
+				$("#-1").show();
+				$("#-4").show();
+				$("#-7").show();
+				$("#-10").show();
+	
+				for(var i = 0; i < 10; i++){
+					var ww = "#" + i;
+					$(ww).show();
+				}
+			}
+			else{
+				$("#-1").hide();
+				$("#-4").hide();
+				$("#-7").hide();
+				$("#-10").hide();
+				console.log(currPage*10+10);
+				
+				for(var i = 0; i < $(".result").length; i++){
+					var ww = "#" + i;
+					var temp = currPage*10+10;
+					
+					if(i>currPage*10 && i<temp)
+						$(ww).show();
+					else
+						$(ww).hide();
+				}
+			}
+		}
+		nexta(pN);
+	</script>
 </body>
 </html>
