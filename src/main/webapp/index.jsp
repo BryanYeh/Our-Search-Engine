@@ -22,7 +22,7 @@
 					<div class="form-group">
 						<div class="input-group">
 							<input type="text" class="form-control" name="q">
-							<input type="hidden" value="www.yahoo.com" name="s">
+							<input type="hidden" value="www.apple.com" name="s">
 							<div class="input-group-btn">
 								<button class="btn btn-primary" type="submit" id="submit" name="submit">
 									<i class="glyphicon glyphicon-search"></i>

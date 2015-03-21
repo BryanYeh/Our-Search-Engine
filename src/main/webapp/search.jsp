@@ -1,4 +1,6 @@
-<%@ page import="java.util.List;" %>
+<%@ page import="java.util.List" %>
+<%@ page import="web.RankedLink" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +33,7 @@
 				id="bs-example-navbar-collapse-1">
 				<form class="navbar-form navbar-left" role="search" action="Seearch" method="POST" enctype="application/x-www-form-urlencoded">
 					<div class="input-group">
-						<input type="hidden" name="s" value="www.yahoo.com"> 
+						<input type="hidden" name="s" value="www.apple.com"> 
 						<input type="text" name="q" class="form-control"> 
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button">
@@ -44,10 +46,9 @@
 		</div>
 	</nav>
 	<div class="jumbotron"></div>
-	<div class="container">
-		
+	<div class="container" id="jsonStuff">
 		<%
-			List<?> specials = (List<?>) request.getAttribute("special");
+			List<String> specials = (List<String>) request.getAttribute("special");
 			for(int i = 0; i < specials.size(); i++){
 		%>
 		<div class="row">
@@ -68,9 +69,36 @@
 			i+=2;
 			}
 		%>
+		<hr>
+		<%
+			List<RankedLink> ourspecial = (List<RankedLink>) request.getAttribute("special2");
+			int whatever = 50;
+			if(ourspecial.size()<50)
+				whatever = ourspecial.size();
+			for(int i = 0; i < whatever; i++){
+		%>
+		<div class="row">
+			<div class="col-md-10">
+				<h2><a href="<%=ourspecial.get(i).getUrl() %>"><%=ourspecial.get(i).getTitle() %></a></h2>
+				<p>
+					<%
+						if(ourspecial.get(i).getUrl().length()>128)
+							out.println(ourspecial.get(i).getUrl().substring(0, 125));
+						else
+							out.println(ourspecial.get(i).getUrl());
+					%>
+				</p>
+				<p><%=ourspecial.get(i).getDescription() %></p>
+			</div>
+		</div>
+		<%
+			}
+		%>
 		
-
 	</div>	
+	<div class="container">
+		<footer>C&#149;E&#149;I&#149;R Google can't beat this</footer>
+	</div>
 
 	<script src="js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
